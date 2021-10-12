@@ -63,10 +63,6 @@ button:hover {
   border-radius: 10px;
   box-shadow: var(--neumo-inset);
   border: 2px solid transparent;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
 
   position: relative;
   overflow-y: scroll;
@@ -119,7 +115,7 @@ main {
   min-height: calc(100% - 70px);
   margin-top: 0.75rem;
   margin-inline: 0.75rem;
-  z-index: -1;
+  z-index: 1;
 }
 
 form {
