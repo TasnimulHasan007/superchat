@@ -14,19 +14,28 @@ initializeAuthentication()
 
 const auth = firebase.auth()
 const firestore = firebase.firestore()
-const analytics = firebase.analytics()
 
 function App() {
   const [user] = useAuthState(auth)
 
   return (
     <div className="App">
-      <header>
-        <h1>টং</h1>
-        <SignOut />
-      </header>
-
-      <section>{user ? <ChatRoom /> : <SignIn />}</section>
+      <section>
+        {user ? (
+          <>
+            <header>
+              <span>
+                <img src={user.photoURL} alt="" />
+                <h3>{user.displayName}</h3>
+              </span>
+              <SignOut />
+            </header>
+            <ChatRoom />
+          </>
+        ) : (
+          <SignIn />
+        )}
+      </section>
     </div>
   )
 }
@@ -40,9 +49,8 @@ function SignIn() {
   return (
     <>
       <button className="sign-in" onClick={signInWithGoogle}>
-        গুগল দি হান্দাও
+        <i className="fab fa-google"></i> গুগল দি হান্দাও
       </button>
-      <p>গাইল গুইল দিয়ো না, ভদ্দোরোতা বজায় রাখো</p>
     </>
   )
 }
@@ -51,7 +59,7 @@ function SignOut() {
   return (
     auth.currentUser && (
       <button className="sign-out" onClick={() => auth.signOut()}>
-        দূরে গিয়া মর
+        <i className="fas fa-sign-out-alt"></i>
       </button>
     )
   )
@@ -87,7 +95,6 @@ function ChatRoom() {
       <main>
         {messages &&
           messages.map((msg) => <ChatMessage key={msg.id} message={msg} />)}
-
         <span ref={dummy}></span>
       </main>
 

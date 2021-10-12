@@ -1,111 +1,35 @@
-html {
-  user-select: none;
+:root {
+  /* --very-dark: #0c1927; */
+  --very-dark: #211e2d;
+  --white: #fefefe;
+  --primary: #205ffe;
+  --secondary: #343145;
+  --hover: #3484ff;
+
+  /* neumorphism */
+  --neumo-inset: inset 8px 8px 15px rgba(0, 0, 0, 0.2),
+    inset -8px -8px 15px rgba(255, 255, 255, 0.03),
+    8px 8px 15px rgba(0, 0, 0, 0.2), -8px -8px 15px rgba(255, 255, 255, 0.03);
 }
 
-body {
-  background-color: #000;
+::-webkit-scrollbar {
+  width: 0;
 }
 
-.App {
-  text-align: center;
-  max-width: 728px;
-  margin: 0 auto;
-}
-
-.App header {
-  background-color: #242526;
-  height: 10vh;
-  min-height: 50px;
-  color: white;
-  position: fixed;
-  width: 100%;
-  max-width: 728px;
-  top: 0;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  z-index: 99;
-  padding: 10px 20px;
+* {
+  margin: 0;
+  padding: 0;
   box-sizing: border-box;
 }
 
-.App section {
+body #root {
+  background: var(--very-dark);
+  color: var(--white);
+  padding: 20px;
+  width: 100vw;
+  height: 100vh;
   display: flex;
-  flex-direction: column;
-  justify-content: center;
-  min-height: 100vh;
-  background-color: #242526;
-}
-
-main {
-  padding: 10px 20px;
-  height: 80vh;
-  margin: 10vh 0 10vh;
-  overflow-y: scroll;
-  display: flex;
-  flex-direction: column;
-}
-
-main::-webkit-scrollbar {
-  width: 0.25rem;
-}
-
-main::-webkit-scrollbar-track {
-  background: #1e1e24;
-}
-
-main::-webkit-scrollbar-thumb {
-  background: #008cfa;
-}
-
-form {
-  height: 10vh;
-  position: fixed;
-  bottom: 0;
-  background-color: rgb(24, 23, 23);
-  width: 100%;
-  max-width: 728px;
-  display: flex;
-  font-size: 1.5rem;
-}
-
-form button {
-  width: 20%;
-  background-color: #008cfa;
-}
-
-input {
-  width: 100%;
-  font-size: 1.2rem;
-  background: #3a3b3c;
-  color: white;
-  outline: none;
-  border: none;
-  padding: 0 20px;
-}
-
-button {
-  background-color: #0b93f6; /* Green */
-  border: none;
-  color: white;
-  padding: 15px 32px;
-  text-align: center;
-  text-decoration: none;
-  display: inline-block;
-  cursor: pointer;
-  font-size: 1.25rem;
-}
-
-button:disabled {
-  opacity: 0.5;
-  cursor: disabled;
-}
-
-.sign-in {
-  color: #282c34;
-  background: white;
-  max-width: 400px;
-  margin: 0 auto;
+  align-items: center;
 }
 
 ul,
@@ -114,13 +38,135 @@ li {
   list-style: none;
 }
 
+button {
+  border: 2px solid transparent;
+  border-radius: 5px;
+  font-weight: bold;
+  background: var(--primary);
+  color: var(--white);
+  padding: 10px 25px;
+  cursor: pointer;
+  transition: 0.3s ease;
+}
+
+button:hover {
+  background: var(--hover);
+}
+
+.App {
+  text-align: center;
+  width: min(100%, 640px);
+  height: min(100%, 850px);
+  background: var(--very-dark);
+  margin: 0 auto;
+  padding: 15px 20px;
+  border-radius: 10px;
+  box-shadow: var(--neumo-inset);
+  border: 2px solid transparent;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  position: relative;
+  overflow-y: scroll;
+  user-select: none;
+}
+
+.App p {
+  user-select: text;
+}
+
+.App section {
+  width: 100%;
+  height: 100%;
+  overflow-y: scroll;
+}
+
+.App header {
+  position: sticky;
+  top: 0;
+  box-shadow: var(--neumo-inset);
+  border: 2px solid transparent;
+  border-radius: 10px;
+  background: var(--very-dark);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 20px;
+  width: 100%;
+  z-index: 1;
+}
+
+.App header h1 {
+  font-size: 1.4rem;
+}
+
+.App header span {
+  display: flex;
+  align-items: center;
+}
+
+.App header span h3 {
+  margin-left: 0.5rem;
+}
+
+.sign-in {
+  margin-top: 2rem;
+}
+
+main {
+  min-height: calc(100% - 70px);
+  margin-top: 0.75rem;
+  margin-inline: 0.75rem;
+  z-index: -1;
+}
+
+form {
+  box-shadow: var(--neumo-inset);
+  border: 2px solid transparent;
+  background: var(--very-dark);
+  position: sticky;
+  bottom: 0;
+  width: 100%;
+  display: flex;
+  border-radius: 10px;
+}
+
+form button {
+  width: 10%;
+  box-shadow: none;
+  border-radius: 0;
+  background: transparent;
+}
+
+form button:hover {
+  background: transparent;
+  color: var(--primary);
+}
+
+input {
+  vertical-align: center;
+  width: 100%;
+  font-size: 1.1rem;
+  background: transparent;
+  color: var(--white);
+  outline: none;
+  border: none;
+  padding: 15px 20px;
+}
+
+button:disabled {
+  opacity: 0.5;
+}
+
 p {
   max-width: 500px;
   margin-bottom: 12px;
   line-height: 24px;
   padding: 10px 20px;
   position: relative;
-  color: white;
+  color: var(--white);
   text-align: center;
 }
 
@@ -129,20 +175,26 @@ p {
   align-items: center;
 }
 
+.message img {
+  margin-right: 15px;
+}
+
 .sent {
   flex-direction: row-reverse;
 }
 
+.sent img {
+  display: none;
+}
+
 .sent p {
-  color: white;
-  border-radius: 20px 0 20px 20px;
-  background: #008cfa;
+  border-radius: 15px 0 15px 15px;
+  background: var(--primary);
   align-self: flex-end;
 }
 .received p {
-  background: #3e4042;
-  border-radius: 0 20px 20px 20px;
-  color: white;
+  background: var(--secondary);
+  border-radius: 0 15px 15px 15px;
 }
 
 img {
