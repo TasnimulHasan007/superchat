@@ -1,5 +1,9 @@
+html {
+  user-select: none;
+}
+
 body {
-  background-color: #282c34;
+  background-color: #000;
 }
 
 .App {
@@ -9,7 +13,7 @@ body {
 }
 
 .App header {
-  background-color: #181717;
+  background-color: #242526;
   height: 10vh;
   min-height: 50px;
   color: white;
@@ -21,7 +25,7 @@ body {
   align-items: center;
   justify-content: space-between;
   z-index: 99;
-  padding: 10px;
+  padding: 10px 20px;
   box-sizing: border-box;
 }
 
@@ -30,11 +34,11 @@ body {
   flex-direction: column;
   justify-content: center;
   min-height: 100vh;
-  background-color: rgb(40, 37, 53);
+  background-color: #242526;
 }
 
 main {
-  padding: 10px;
+  padding: 10px 20px;
   height: 80vh;
   margin: 10vh 0 10vh;
   overflow-y: scroll;
@@ -51,7 +55,7 @@ main::-webkit-scrollbar-track {
 }
 
 main::-webkit-scrollbar-thumb {
-  background: #6649b8;
+  background: #008cfa;
 }
 
 form {
@@ -67,23 +71,21 @@ form {
 
 form button {
   width: 20%;
-  background-color: rgb(56, 56, 143);
+  background-color: #008cfa;
 }
 
-
 input {
-  line-height: 1.5;
   width: 100%;
-  font-size: 1.5rem;
-  background: rgb(58, 58, 58);
+  font-size: 1.2rem;
+  background: #3a3b3c;
   color: white;
   outline: none;
   border: none;
-  padding: 0 10px;
+  padding: 0 20px;
 }
 
 button {
-  background-color: #282c34; /* Green */
+  background-color: #0b93f6; /* Green */
   border: none;
   color: white;
   padding: 15px 32px;
@@ -96,9 +98,8 @@ button {
 
 button:disabled {
   opacity: 0.5;
-  cursor: not-allowed;
+  cursor: disabled;
 }
-
 
 .sign-in {
   color: #282c34;
@@ -107,10 +108,8 @@ button:disabled {
   margin: 0 auto;
 }
 
-
-
-
-ul, li {
+ul,
+li {
   text-align: left;
   list-style: none;
 }
@@ -120,7 +119,6 @@ p {
   margin-bottom: 12px;
   line-height: 24px;
   padding: 10px 20px;
-  border-radius: 25px;
   position: relative;
   color: white;
   text-align: center;
@@ -131,19 +129,20 @@ p {
   align-items: center;
 }
 
-
 .sent {
   flex-direction: row-reverse;
 }
 
 .sent p {
   color: white;
-  background: #0b93f6;
+  border-radius: 20px 0 20px 20px;
+  background: #008cfa;
   align-self: flex-end;
 }
 .received p {
-  background: #e5e5ea;
-  color: black;
+  background: #3e4042;
+  border-radius: 0 20px 20px 20px;
+  color: white;
 }
 
 img {
@@ -152,4 +151,3 @@ img {
   border-radius: 50%;
   margin: 2px 5px;
 }
-

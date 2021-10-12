@@ -22,7 +22,7 @@ function App() {
   return (
     <div className="App">
       <header>
-        <h1>superchat</h1>
+        <h1>টং</h1>
         <SignOut />
       </header>
 
@@ -40,11 +40,9 @@ function SignIn() {
   return (
     <>
       <button className="sign-in" onClick={signInWithGoogle}>
-        Sign in with Google
+        গুগল দি হান্দাও
       </button>
-      <p>
-        Do not violate the community guidelines or you will be banned for life!
-      </p>
+      <p>গাইল গুইল দিয়ো না, ভদ্দোরোতা বজায় রাখো</p>
     </>
   )
 }
@@ -53,7 +51,7 @@ function SignOut() {
   return (
     auth.currentUser && (
       <button className="sign-out" onClick={() => auth.signOut()}>
-        Sign Out
+        দূরে গিয়া মর
       </button>
     )
   )
@@ -62,7 +60,7 @@ function SignOut() {
 function ChatRoom() {
   const dummy = useRef()
   const messagesRef = firestore.collection("messages")
-  const query = messagesRef.orderBy("createdAt").limit(25)
+  const query = messagesRef.orderBy("createdAt").limit(1000)
 
   const [messages] = useCollectionData(query, { idField: "id" })
 
@@ -97,11 +95,11 @@ function ChatRoom() {
         <input
           value={formValue}
           onChange={(e) => setFormValue(e.target.value)}
-          placeholder="say something nice"
+          placeholder="মনের কতা খুলি কও বদ্দা..."
         />
 
         <button type="submit" disabled={!formValue}>
-          send
+          <i className="fas fa-paper-plane"></i>
         </button>
       </form>
     </>
